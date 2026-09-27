@@ -1,0 +1,4 @@
+{
+  "title": "Memory Search",
+  "description": "Turns a folder of markdown notes into searchable long-term memory: local embeddings + FTS5 hybrid recall, surfacing relevant old notes each turn."
+}

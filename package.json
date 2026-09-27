@@ -1,0 +1,51 @@
+{
+  "name": "dsh-memory-search",
+  "version": "0.1.0",
+  "type": "module",
+  "description": "Markdown 笔记 → Agent 的长期记忆：本地 embedding + SQLite FTS5 混合召回（中文 bigram），可选密级过滤。",
+  "license": "MIT",
+  "keywords": [
+    "dsh",
+    "dsh-plugin",
+    "deepseek-harness",
+    "cordis",
+    "memory",
+    "long-term-memory",
+    "rag",
+    "fts5",
+    "embedding"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JackZo400/dsh-memory-search.git"
+  },
+  "exports": {
+    ".": "./index.js",
+    "./package.json": "./package.json",
+    "./locale/*.json": "./locale/*.json"
+  },
+  "icon": "./icon.svg",
+  "meta": {
+    "title": "Memory Search",
+    "description": "把一堆 markdown 笔记做成可检索的长期记忆（本地 embedding + FTS5 混合召回）"
+  },
+  "files": [
+    "index.js",
+    "src",
+    "locale/*.json",
+    "icon.svg",
+    "cordis.patch.yml",
+    "README.md"
+  ],
+  "scripts": {
+    "test": "node test/selftest.mjs && node test/plugin-selftest.mjs && node test/spec-guard.mjs"
+  },
+  "optionalDependencies": {
+    "node-llama-cpp": "^3.21.1"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  }
+}

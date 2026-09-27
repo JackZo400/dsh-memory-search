@@ -1,0 +1,5 @@
+node_modules/
+*.log
+.dsh-memory/
+test/.tmp/
+.DS_Store

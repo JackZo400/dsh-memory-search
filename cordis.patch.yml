@@ -1,0 +1,42 @@
+# dsh-memory-search 的示例配置（bundle patch）。
+#
+# 装完插件之后按你的实际情况改 —— 主要是 roots（你的笔记目录）
+# 和 modelPath（想开向量检索才需要填）。
+# 每项的含义见 README 的「配置」一节。
+- insert:
+    - id: memory-search
+      name: dsh-memory-search
+      config:
+        # 索引库（SQLite）落在哪。相对路径按 dsh 的工作目录算。
+        dbPath: .dsh-memory/index.db
+
+        # 语料根目录：递归收集里面的 .md。**改成你自己的笔记目录**。
+        roots:
+          - ./memory
+
+        # 本地嵌入模型（GGUF）。留空 = 只跑关键词那一路，什么都不用下就能用。
+        # 填上模型路径才会多出「同义不同词」的语义召回。
+        modelPath: ''
+
+        # 自动召回：每轮按最近的用户消息捞几条，塞进系统提示（不进对话记录）。
+        recall:
+          enabled: true
+          limit: 4
+          budgetChars: 1600
+          order: 130
+
+        # 向量那半的开销（CPU 推理，注意常驻内存）。
+        embedding:
+          enabled: true
+          threads: 6
+          contextSize: 1024
+          batchSize: 256
+          # 默认前缀是给 Qwen3-Embedding 用的；换别的嵌入模型建议清空。
+          # queryInstruction: ''
+
+        # 切块规则变了要不要重切（true = 重算全部向量，慎用）。
+        acceptSpecChange: false
+
+        # 可选：按会话通道做密级过滤。配上它、且映射里判不出通道时**不召回**（fail closed）。
+        # sessionMap: ./tmp/session-map.json
+        # ownerIds: []

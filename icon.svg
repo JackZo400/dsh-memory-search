@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-label="Memory Search">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#7dc4ff"/>
+      <stop offset="1" stop-color="#b48cff"/>
+    </linearGradient>
+  </defs>
+  <rect x="2" y="2" width="60" height="60" rx="14" fill="#101422"/>
+  <!-- 一叠记忆：三张卡片，最后一张被检索照亮 -->
+  <rect x="12" y="14" width="40" height="8" rx="4" fill="#2b3350"/>
+  <rect x="12" y="26" width="40" height="8" rx="4" fill="#39456b"/>
+  <rect x="12" y="38" width="40" height="8" rx="4" fill="url(#g)"/>
+  <!-- 放大镜：在记忆里找一句话 -->
+  <circle cx="42" cy="42" r="11" fill="none" stroke="#eaf1ff" stroke-width="3.2"/>
+  <line x1="50" y1="50" x2="57" y2="57" stroke="#eaf1ff" stroke-width="4" stroke-linecap="round"/>
+</svg>

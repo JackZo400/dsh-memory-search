@@ -1,0 +1,4 @@
+{
+  "title": "记忆检索",
+  "description": "把一堆 markdown 笔记做成可检索的长期记忆：本地 embedding + FTS5 混合召回，每轮自动带出相关旧事。"
+}
