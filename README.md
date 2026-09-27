@@ -1,5 +1,7 @@
 # dsh-memory-search
 
+[English](README.en.md) | 简体中文
+
 给 [DeepSeek Harness](https://github.com/deepseek-ai/deepseek-harness)（dsh）用的**长期记忆检索**插件。
 
 把一堆 markdown 笔记做成 Agent「想得起来」的记忆：两路召回（本地向量 + 关键词），
@@ -10,7 +12,7 @@
 
 ---
 
-## 为什么用 markdown 当语料
+## 为什么需要它（用 markdown 当语料）
 
 记忆存在磁盘上的 `.md` 里，数据库只是**索引**：
 
@@ -82,7 +84,7 @@ dsh plugin --profile web add github:JackZo400/dsh-memory-search
 - **换嵌入模型要删掉索引库重建** —— 向量维度不同，旧向量没法复用（代码会检测到维度不匹配，
   直接放弃语义那一路，不会给你算出垃圾结果）。
 
-## 语料怎么放
+## 配置（语料怎么放）
 
 没有固定结构，递归收 `.md`，两个建议：
 
@@ -92,7 +94,7 @@ dsh plugin --profile web add github:JackZo400/dsh-memory-search
    把真正的事实挤出前排。插件给 `public.md` / `personal.md` / `secret.md` 这类文件加了
    1.5 倍来源权重、给 `carryover/` 目录降了权，但语料结构还是你自己最清楚。
 
-## 密级（可选）
+## 配置（密级，可选）
 
 判据是**文件名**（放在哪个目录下都行）：
 
@@ -135,7 +137,7 @@ markdown 语料 ──scan──▶ 切块（按条目边界）──▶ SQLite
   自动召回挂在 `system-prompt/assemble` 上，往系统提示里加一段 `memory-search`，
   **不写进对话记录**，所以不会污染上下文历史。
 
-## 开发与测试
+## 测试
 
 ```bash
 node test/selftest.mjs         # 切块 / 分词 / 索引 / 检索（临时语料，无外部依赖）
@@ -168,16 +170,6 @@ MIT © 2026 JackZo400
 
 ---
 
-## English (short)
+## English
 
-**dsh-memory-search** — long-term memory search for
-[DeepSeek Harness](https://github.com/deepseek-ai/deepseek-harness).
-
-Point it at a folder of markdown notes; it builds a hybrid index
-(SQLite FTS5 with application-level CJK bigrams + local embeddings via
-`node-llama-cpp`) and surfaces relevant old notes into the system prompt each turn,
-or on demand through a `memory_search` tool. Embeddings are optional — without a
-`modelPath` it still works, keyword-only. Optional per-channel access levels keep
-private notes out of group conversations. Runs entirely locally, no API cost.
-
-Requires Node ≥ 22.5 (`node:sqlite`). MIT licensed.
+→ Full English README: [README.en.md](README.en.md)
