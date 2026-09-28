@@ -14,6 +14,16 @@ context every turn, and a `memory_search` tool the agent can dig through itself.
 > This plugin does not train and does not fine-tune. It does one thing: turns the
 > notes you wrote yourself into memory you can look up at any time.
 
+> **More mature options in the same space**: [csyangwen/dsh-memory-evolve](https://github.com/csyangwen/dsh-memory-evolve),
+> [Aik358/dsh-auto-memory](https://github.com/Aik358/dsh-auto-memory) and
+> [FuRongJun-1999/dsh-memory](https://github.com/FuRongJun-1999/dsh-memory) are all more mature than this
+> one; look at them first if you are choosing.
+> Why we keep this one: it is **the memory-search part extracted from our own production setup** - the two
+> recall paths (local vectors + keywords) and the access-level filter are the ones that actually ran, its
+> self-tests bring their own corpus so you do not have to wire up your data first, and a deleted index is
+> rebuilt from the `.md` files.
+> Its feature set is narrower than theirs, so compare before you pick.
+
 ---
 
 ## Why you need it (markdown as the corpus)

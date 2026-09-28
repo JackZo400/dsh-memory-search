@@ -10,6 +10,11 @@
 > 一个跑得久的 Agent，问题常常不是模型不够聪明，而是**它不记得**。
 > 这个插件不训练、不微调，只做一件事：把你自己写的笔记，变成随时查得到的记忆。
 
+> **同类里更成熟的选择**：[csyangwen/dsh-memory-evolve](https://github.com/csyangwen/dsh-memory-evolve)、[Aik358/dsh-auto-memory](https://github.com/Aik358/dsh-auto-memory)、[FuRongJun-1999/dsh-memory](https://github.com/FuRongJun-1999/dsh-memory) 都比这份成熟，要装先看它们。
+> 我们这份留着的理由：它是**我们自己线上记忆检索的抽出版**——两路召回（本地向量 + 关键词）和密级过滤都是跑过的那套，
+> 自检自带语料、不用先接上你的数据，索引删了也能从 `.md` 重建。
+> 功能面比上面几个窄，选之前先比一比。
+
 ---
 
 ## 为什么需要它（用 markdown 当语料）
