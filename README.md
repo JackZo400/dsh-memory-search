@@ -1,3 +1,11 @@
+> **暂停开发 / Development paused**
+>
+> 因家庭原因暂时无法继续开发，等稳定后继续。
+>
+> Development is temporarily paused for family reasons. It will resume once things settle.
+
+---
+
 # dsh-memory-search
 
 [English](README.en.md) | 简体中文
